@@ -2,8 +2,8 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from sqlalchemy.exc import NoResultFound
-from base import Base, engine, SessionLocal
-from model import Usuario, Libro, Categoria
+from models.base import Base, engine, SessionLocal
+from models.model import Usuario, Libro, Categoria
 import os
 
 app = Flask(__name__)
