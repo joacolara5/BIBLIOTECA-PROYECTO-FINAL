@@ -3,7 +3,7 @@ from sqlalchemy import Column, Integer, String, Text, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
-from base import Base
+from .base import Base
 
 class Usuario(Base):
     __tablename__ = "usuarios"
