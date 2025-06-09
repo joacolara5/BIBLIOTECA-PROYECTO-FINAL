@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Más Info{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <!-- Te ofrecemos -->
+  <section class="mb-5 text-center">
+    <h3 class="section-title">Te ofrecemos ⚡</h3>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <div class="p-2 border rounded">Libros: <strong>{{ stats.total_books }}</strong></div>
+      <div class="p-2 border rounded">Categorías: <strong>{{ stats.total_categories }}</strong></div>
+      <div class="p-2 border rounded">Usuarios: <strong>{{ stats.total_users }}</strong></div>
+    </div>
+  </section>
+
+  <!-- Sobre Nosotros -->
+  <section class="mb-5 text-center">
+    <h3 class="section-title">Sobre Nosotros 🏰</h3>
+    <p>Somos un grupo de magos y brujas amantes de la lectura. Fundamos Hogwarts & Books en 2025 y nuestra visión es convertir cada lectura en una experiencia mágica. ¡Bienvenidos a nuestro mundo encantado! ✨</p>
+  </section>
+
+  <!-- Ubicación -->
+  <section class="text-center">
+    <h3 class="section-title">Ubicación 🧭</h3>
+    <div class="ratio ratio-16x9 mx-auto" style="max-width:600px;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." style="border:0;" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </section>
+</div>
+{% endblock %}

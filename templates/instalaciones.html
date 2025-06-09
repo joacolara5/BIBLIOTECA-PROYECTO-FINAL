@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Instalaciones{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <h2 class="text-center mb-4">Nuestras Instalaciones</h2>
+  <p class="text-center mb-4">Conoce cada rincón de nuestro espacio mágico.</p>
+
+  <div id="bibliotecaCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      {% for i in range(7) %}
+      <button type="button" data-bs-target="#bibliotecaCarousel" data-bs-slide-to="{{ i }}"
+              class="{{ 'active' if i==0 }}" aria-current="{{ 'true' if i==0 }}" aria-label="Slide {{ i+1 }}"></button>
+      {% endfor %}
+    </div>
+    <div class="carousel-inner">
+      {% set slides = [
+        ('fachada.jpg','Fachada','La imponente entrada de la biblioteca mágica.'),
+        ('salalectura.jpg','Sala de lectura','Un ambiente tranquilo para sumergirse en la lectura.'),
+        ('salaestudio.jpg','Sala de estudio','Espacio dedicado al aprendizaje y concentración.'),
+        ('estanteria.jpg','Estantería','Organización mágica de cientos de libros.'),
+        ('recepcion.webp','Recepción','El punto de bienvenida a un mundo mágico.'),
+        ('baños.jpg','Baños','Espacios cómodos y cuidados para los visitantes.'),
+        ('jardines.jpg','Jardines','Un oasis de tranquilidad en el mundo mágico.')
+      ] %}
+      {% for img, title, desc in slides %}
+      <div class="carousel-item {{ 'active' if loop.first }}">
+        <img src="{{ url_for('static', filename='img/' ~ img) }}" class="d-block w-100" alt="{{ title }}">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>{{ title }}</h5>
+          <p>{{ desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#bibliotecaCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#bibliotecaCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+  </div>
+</div>
+{% endblock %}

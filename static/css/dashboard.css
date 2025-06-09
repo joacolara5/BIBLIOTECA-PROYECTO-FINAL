@@ -1,0 +1,55 @@
+:root {
+  /* Colores biblioteca */
+  --bg-dark: #121212;
+  --bg-light: #fdf8f5;
+  --accent: #9A4C10;
+  --text-light: #f2ece4;
+  --text-dark: #333;
+  --primary: #2C1B0F;
+  --secondary: #7b0d2b;
+  --transition: 0.3s ease;
+}
+
+html, body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+/* Modo claro */
+[data-bs-theme="light"] {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* Stats cards */
+.stats-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: .5rem;
+  transition: transform var(--transition), background var(--transition);
+}
+.stats-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.1);
+}
+
+/* Tables */
+.table {
+  font-size: .85rem;
+}
+
+/* Chart boxes */
+.chart-box {
+  height: 300px;
+}
+
+/* Toggle buttons */
+.btn-outline-light {
+  transition: background var(--transition), color var(--transition);
+}
+
+/* Select2 */
+.select2-container--bootstrap-5 .select2-selection--multiple {
+  min-height: calc(1.5em + .75rem + 2px);
+}

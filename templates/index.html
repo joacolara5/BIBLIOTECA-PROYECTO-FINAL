@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Biblioteca{% endblock %}
+
+{% block content %}
+  <!-- Stat Cards -->
+  <div class="row g-3 mb-4">
+    <div class="col-sm-6 col-md-3">
+      <div class="stats-card p-3 text-center">
+        <i class="fas fa-book fa-2x mb-2"></i>
+        <div class="metric" id="totalLibros">0</div>
+        <small class="variation">Total Libros</small>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="stats-card p-3 text-center">
+        <i class="fas fa-folder-open fa-2x mb-2"></i>
+        <div class="metric" id="totalCategorias">0</div>
+        <small class="variation">Total Categorías</small>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="stats-card p-3 text-center">
+        <i class="fas fa-user fa-2x mb-2"></i>
+        <div class="metric" id="totalUsuarios">0</div>
+        <small class="variation">Total Usuarios</small>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="stats-card p-3 text-center">
+        <i class="fas fa-calendar-alt fa-2x mb-2"></i>
+        <div class="metric" id="anioTop">2025</div>
+        <small class="variation">Año con más altas</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filtros -->
+  <div class="row mb-3">
+    <div class="col-md-4 mb-2">
+      <label class="form-label">Categoría</label>
+      <select id="filterCategoria" multiple="multiple" style="width:100%"></select>
+    </div>
+    <div class="col-md-4 mb-2">
+      <label class="form-label">Año Publicación</label>
+      <select id="filterYear" multiple="multiple" style="width:100%"></select>
+    </div>
+    <div class="col-md-4 mb-2">
+      <label class="form-label">Buscar Título</label>
+      <input type="text" id="searchTitle" class="form-control" placeholder="Título..." />
+    </div>
+  </div>
+
+  <!-- Botones toggle tabla/gráficos -->
+  <div class="d-flex gap-2 mb-3">
+    <button id="toggleTable" class="btn btn-outline-light btn-sm">Ocultar Tabla</button>
+    <button id="toggleCharts" class="btn btn-outline-light btn-sm">Ocultar Gráficos</button>
+  </div>
+
+  <!-- Tabla de Libros -->
+  <h2 id="tableTitle" class="text-center text-primary fw-bold mb-2">Listado de Libros</h2>
+  <div id="tablaContainer" class="card mb-4 shadow-sm">
+    <div class="card-body p-2">
+      <div class="table-responsive">
+        <table id="tablaLibros" class="table table-striped table-sm mb-0">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Autor</th>
+              <th>Categoría</th>
+              <th>Año</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gráficos -->
+  <h2 id="chartsTitle" class="text-center text-primary fw-bold mb-2">Visualizaciones</h2>
+  <div id="sectionCharts" class="row gy-4">
+    <div class="col-md-6">
+      <div class="card p-3 chart-box">
+        <canvas id="pieCategoria"></canvas>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card p-3 chart-box">
+        <canvas id="barAnio"></canvas>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // Simulamos datos; en producción vendrían de una API (/api/libros)
+  const allData = [
+    { titulo: "La Casa de los Espíritus", autor:"Isabel Allende", categoria:"Ficción", year:1982 },
+    { titulo: "Cien Años de Soledad", autor:"G.G. Márquez", categoria:"Realismo", year:1967 },
+    // … más libros …
+  ];
+</script>
+<script>
+  // Aquí va la lógica idéntica a la del dashboard de cáncer,
+  // pero adaptada a campos: categoria, year, titulo.
+  // - popularFiltros()
+  // - aplicarFiltrosYGraficos()
+  // - cargarTabla()
+  // - renderGraficos()
+  // Puedes reusar el static/js/dashboard.js directamente.
+</script>
+{% endblock %}

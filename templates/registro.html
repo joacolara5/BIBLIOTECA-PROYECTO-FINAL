@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Regístrate{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card-form">
+        <h2 class="text-center mb-4">Registro de Usuarios</h2>
+        <form action="{{ url_for('auth') }}" method="POST">
+          <input type="hidden" name="action" value="register">
+          <div class="mb-3">
+            <label for="username" class="form-label">Usuario:</label>
+            <input type="text" id="username" name="username" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña:</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-custom">Registrarse</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
