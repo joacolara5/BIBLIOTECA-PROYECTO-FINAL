@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # Postgres connection: ajusta host/puerto si es necesario
-DATABASE_URL = "postgresql+psycopg2://postgres:241210@localhost:5432/biblioteca"
+DATABASE_URL = "postgresql+psycopg2://postgres:2deabril2005@localhost:5432/biblioteca"
 
 engine = create_engine(
     DATABASE_URL,
